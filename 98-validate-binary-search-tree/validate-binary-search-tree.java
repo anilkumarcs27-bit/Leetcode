@@ -20,6 +20,21 @@ class Solution {
         return validate(node.left,low,node.val)&&validate(node.right,node.val,high);
     }
     public boolean isValidBST(TreeNode root) {
-        return validate(root, null, null);
+        // return validate(root, null, null);
+        Stack<TreeNode> stack = new Stack<>();
+        Integer prev = null;
+        while(root!=null|| !stack.isEmpty()){
+            while(root!=null){
+                stack.push(root);
+                root = root.left;
+            }
+            root= stack.pop();
+            if(prev!=null && root.val <= prev){
+                return false;
+            }
+            prev = root.val;
+            root = root.right;
+        }
+        return true;
     }
 }
