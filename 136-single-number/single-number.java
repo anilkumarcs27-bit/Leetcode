@@ -1,15 +1,25 @@
 import java.util.*;
 class Solution {
     public int singleNumber(int[] nums) {
-        HashMap<Integer,Integer> map = new HashMap<>();
-        for (int num : nums) {
-            map.put(num, map.getOrDefault(num, 0) + 1);
+    //     HashMap<Integer,Integer> map = new HashMap<>();
+    //     for (int num : nums) {
+    //         map.put(num, map.getOrDefault(num, 0) + 1);
+    //     }
+    //     for (int num : nums) {
+    // if (map.get(num) == 1) {
+    //     System.out.println(num);
+    //     return num;
+    // }}
+    // return 0;
+    HashSet<Integer> set = new HashSet<>();
+    for(int x:nums){
+    if(set.contains(x)){
+        set.remove(x);
+        }else{
+        set.add(x);
         }
-        for (int num : nums) {
-    if (map.get(num) == 1) {
-        System.out.println(num);
-        return num;
-    }}
+    }
+    for(int x:set) return x;
     return 0;
     }
 }
