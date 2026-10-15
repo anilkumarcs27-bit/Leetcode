@@ -13,6 +13,8 @@ class Solution {
             nums[even] = nums[odd];
             nums[odd]= temp;
         }
+        even+=2;
+        odd+=2;
      
         }
         return nums;
